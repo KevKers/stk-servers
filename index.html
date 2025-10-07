@@ -57,29 +57,27 @@
             width: 210%;
             height: 210%;
             background: conic-gradient(
-                hsl(275, 100%, 60%),
-                hsl(260, 100%, 40%),
-                hsl(240, 100%, 50%),
-                hsl(225, 100%, 55%),
-                hsl(195, 100%, 60%),
-                hsl(170, 100%, 55%),
-                hsl(130, 100%, 50%),
-                hsl(85,  100%, 55%),
-                hsl(60,  100%, 50%),
-                hsl(48,  100%, 50%),
-                hsl(36,  100%, 50%),
-                hsl(18,  100%, 55%),
-                hsl(10,  100%, 50%),
-                hsl(0,   100%, 50%),
-                hsl(330, 100%, 60%),
-                hsl(340, 100%, 70%),
-                hsl(320, 100%, 40%),
-                hsl(275, 100%, 60%)
+                hsl(270, 100%, 60%) 0%,
+                hsl(265, 100%, 55%) 5%,
+                hsl(255, 100%, 50%) 10%,
+                hsl(240, 100%, 50%) 20%,
+                hsl(230, 100%, 55%) 25%,
+                hsl(210, 100%, 60%) 35%,
+                hsl(190, 100%, 55%) 40%,
+                hsl(170, 100%, 50%) 50%,
+                hsl(130, 100%, 55%) 55%,
+                hsl(90, 100%, 50%) 65%,
+                hsl(60, 100%, 55%) 70%,
+                hsl(40, 100%, 55%) 80%,
+                hsl(20, 100%, 50%) 85%,
+                hsl(0, 100%, 50%) 95%,
+                hsl(330, 100%, 60%) 98%,
+                hsl(270, 100%, 60%) 100%
             );
             border-radius: 8px;
             z-index: 0;
             opacity: 0;
-            filter: blur(0.4px);
+            filter: blur(0.2px);
             transition: opacity 0.3s ease-in-out;
             transform-origin: 50% 50%;
         }
@@ -154,15 +152,14 @@
             overflow: hidden;
             background: linear-gradient(90deg,
                 #8A2BE2 0%,
-                #4B0082 14.28%,
-                #0000FF 28.56%,
-                #00FF00 42.84%,
-                #FFFF00 57.12%,
-                #FF7F00 71.4%,
-                #FF0000 85.68%,
-                #8A2BE2 100%
+                #4B0082 16.66%,
+                #0000FF 33.33%,
+                #00FF00 50%,
+                #FFFF00 66.66%,
+                #FF7F00 83.33%,
+                #FF0000 100%
             );
-            background-size: 800% 100%;
+            background-size: 700% 100%;
             animation: glowingGradient 20s linear infinite;
             border: none;
             color: white;
@@ -176,6 +173,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            min-width: 150px;
         }
         .glowing-button:hover {
             transform: translateY(-2px);
@@ -201,6 +199,12 @@
         }
         @keyframes glowingGradient {
             0% { background-position: 0% 0%; }
+            14.28% { background-position: 14.28% 0%; }
+            28.56% { background-position: 28.56% 0%; }
+            42.84% { background-position: 42.84% 0%; }
+            57.12% { background-position: 57.12% 0%; }
+            71.4% { background-position: 71.4% 0%; }
+            85.68% { background-position: 85.68% 0%; }
             100% { background-position: 100% 0%; }
         }
         .glowing-button.soccer-active {
@@ -314,22 +318,16 @@
         <header class="flex flex-col md:flex-row justify-between items-center mb-8">
             <h1 class="text-4xl font-bold mb-4 md:mb-0 text-center md:text-left">SuperTuxKart Online Servers</h1>
             <div class="w-full text-left mb-4">
-                <p class="text-lg font-semibold text-blue-400 ml-10 md:ml20">Total online players (AI): <span id="totalPlayersCountHuman">0</span> (<span id="totalPlayersCountAI">0</span>)</p>
+                <p class="text-lg font-semibold text-blue-300">Total online players (AI): <span id="totalPlayersCountHuman">0</span> (<span id="totalPlayersCountAI">0</span>)</p>
             </div>
             <div class="flex flex-col md:flex-row items-center w-full md:w-auto">
                 <div class="flex justify-between items-center w-full md:w-auto mb-4 md:mb-0 md:space-x-8">
                     <div class="search-container">
-                        <input type="text" id="searchBar" placeholder="Search servers or players..." class="p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-15 pr-10" />
-                        <button id="searchClearBtn" aria-label="Clear search">
-                            &times;
-                        </button>
+                        <input type="text" id="searchBar" placeholder="Search servers..." class="p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full pr-8" />
+                        <button id="searchClearBtn" aria-label="Clear search">&times;</button>
                     </div>
-                    <button id="soccerServersBtn" class="glowing-button ml-4 md:ml-0">
-                        ⚽ Live Soccer Servers
-                    </button>
-                    <button id="refreshNowBtn" class="glowing-button ml-4 md:ml-0">
-                        🔄 Refresh Now
-                    </button>
+                    <button id="soccerServersBtn" class="glowing-button ml-4 md:ml-0">⚽ Live Soccer Servers</button>
+                    <button id="refreshNowBtn" class="glowing-button ml-4 md:ml-0">🔄 Refresh Now</button>
                 </div>
                 <div class="flex items-center space-x-2 md:ml-8">
                     <span id="utcTime" class="text-sm font-medium"></span>
@@ -351,12 +349,9 @@
             <select id="serverStatusFilter" class="p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full md:w-auto">
                 <option value="">Game Status</option>
             </select>
-            <button id="clearFiltersBtn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 w-full md:w-auto">
-                Clear Filters
-            </button>
+            <button id="clearFiltersBtn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 w-full md:w-auto">Clear Filters</button>
         </div>
-        <div id="serverList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        </div>
+        <div id="serverList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
     </div>
     <div id="messageBox"></div>
     <script>
@@ -377,11 +372,13 @@
         const difficultyFilterSelect = document.getElementById('difficultyFilter');
         const serverStatusFilterSelect = document.getElementById('serverStatusFilter');
         const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+        
         let allServers = [];
         let isSoccerMode = false;
         let updateInterval;
         const clickedServerIds = new Set();
         const AUTO_UPDATE_FETCH_URL = 'https://api.codetabs.com/v1/proxy?quest=https://online.supertuxkart.net/api/v2/server/get-all';
+
         const gameModeMap = {
             0: 'Grand Prix (Normal Race)',
             1: '(Grand Prix) Time Trial',
@@ -429,9 +426,9 @@
             "NC": "New Caledonia", "PF": "French Polynesia", "WF": "Wallis and Futuna", "EH": "Western Sahara",
             "AQ": "Antarctica", "BV": "Bouvet Island", "CC": "Cocos (Keeling) Islands",
             "CX": "Christmas Island", "HM": "Heard Island and McDonald Islands", "NF": "Norfolk Island",
-            "PN": "Pitcairn", "TF": "French Southern Territories", "UM": "United States Minor Outlying Islands",
+            "PN": "Pitcairn", "TF": "French Southern Territories", "UM": "U.S. Minor Outlying Islands",
             "GS": "South Georgia and the South Sandwich Islands", "IO": "British Indian Ocean Territory",
-            "SH": "Saint Helena, Ascension and Tristan da Cunha", "PM": "Saint Pierre and Miquelon",
+            "SH": "Saint Helena", "PM": "Saint Pierre and Miquelon",
             "SJ": "Svalbard and Jan Mayen", "TK": "Tokelau", "AQ": "Antarctica", "AX": "Åland Islands",
             "BQ": "Bonaire, Sint Eustatius and Saba", "CW": "Curaçao", "GG": "Guernsey",
             "IM": "Isle of Man", "JE": "Jersey", "MF": "Saint Martin (French part)",
@@ -619,7 +616,7 @@
             });
             let totalHumanPlayers = 0;
             let totalAIPlayers = 0;
-            filteredServers.forEach(server => {
+            allServers.forEach(server => {
                 const humanPlayersInServer = server.current_players - server.current_ai;
                 totalHumanPlayers += humanPlayersInServer;
                 totalAIPlayers += server.current_ai;
@@ -652,12 +649,13 @@
                 const card = document.createElement('div');
                 card.className = `server-card p-6 rounded-xl shadow-lg flex flex-col justify-between ${clickedServerIds.has(server.id) ? 'clicked' : ''}`;
                 card.dataset.serverId = server.id;
-                const playersText = server.current_players + (server.current_ai > 0 ? ` (+${server.current_ai} AI)` : '');
+                const humanPlayers = server.current_players - server.current_ai;
+                const playersText = humanPlayers + (server.current_ai > 0 ? ` (+${server.current_ai} AI)` : '');
                 const gameModeName = gameModeMap[server.game_mode] || `Mode ${server.game_mode}`;
                 const difficultyDisplay = server.difficulty !== 4 ? `<p><strong class="text-purple-400">Difficulty:</strong> ${difficultyMap[server.difficulty] || `Difficulty ${server.difficulty}`}</p>` : '';
                 const formattedTrackName = formatTrackName(server.current_track);
                 const ipAddress = intToIp(parseInt(server.ip));
-                const isFrankfurtServer = server.name.toLowerCase().includes('frankfurt');
+                const isFFServer = server.name.toLowerCase().includes('frankfurt');
                 const isTierSServer = server.name.toLowerCase().startsWith('tiers');
                 const shouldShowIpPort = !server.password || isFrankfurtServer || isTierSServer;
                 const showHiddenDetailsInitially = clickedServerIds.has(server.id);
@@ -665,6 +663,7 @@
                     server.players.sort((a, b) => {
                         const rankA = a.rank;
                         const rankB = b.rank;
+
                         if (isNaN(rankA) && !isNaN(rankB)) return -1;
                         if (!isNaN(rankA) && isNaN(rankB)) return 1;
                         return rankA - rankB;
@@ -691,19 +690,13 @@
                                 <div class="col-span-2 player-list-scroll-container mt-4">
                                     <h4 class="font-semibold mb-2 text-blue-300">Current Players:</h4>
                                     <div class="grid grid-cols-[auto_1fr_auto] text-xs text-gray-300 gap-x-2 items-center">
-                                        ${server.players.map(p => {
-                                            if (!p || typeof p !== 'object') {
-                                                console.warn("Skipping invalid player object in server:", server.id, p);
-                                                return '';
-                                            }
-                                            return `
-                                                <div class="">#${p.rank || 'N/A'}</div>
-                                                <div class="font-medium text-base">${p.username || 'Unknown'}</div>
-                                                <div class="flex justify-end items-center">
-                                                    <img src="https://flagsapi.com/${p.country_code || 'XX'}/flat/16.png" onerror="this.onerror=null;this.src='https://placehold.co/16x12/cccccc/333333?text=NA';" class="rounded-sm" alt="${(p.country_code || 'XX')} Flag" title="${countryCodeMap[p.country_code] || p.country_code || 'Unknown Country'}">
-                                                </div>
-                                            `;
-                                        }).join('')}
+                                        ${server.players.map(p => `
+                                            <div class="">#${p.rank || 'N/A'}</div>
+                                            <div class="font-medium text-base">${p.username || 'Unknown'}</div>
+                                            <div class="flex justify-end items-center">
+                                                <img src="https://flagsapi.com/${p.country_code || 'XX'}/flat/16.png" onerror="this.onerror=null;this.src='https://placehold.co/16x12/cccccc/333333?text=NA';" class="rounded-sm" alt="${(p.country_code || 'XX')} Flag" title="${countryCodeMap[p.country_code] || p.country_code || 'Unknown Country'}">
+                                            </div>
+                                        `).join('')}
                                     </div>
                                 </div>
                             ` : ''}
@@ -736,7 +729,7 @@
                     if (clickedServerIds.has(server.id)) {
                         clickedServerIds.delete(server.id);
                         card.classList.remove('clicked');
-                        hiddenDetailsSection.classList.add('show-details');
+                        hiddenDetailsSection.classList.remove('show-details');
                     } else {
                         clickedServerIds.add(server.id);
                         card.classList.add('clicked');
@@ -821,7 +814,7 @@
                     if (aIsSoccer && !bIsSoccer) return -1;
                     if (!aIsSoccer && bIsSoccer) return 1;
                 }
-                const playerCountDiff = b.players.length - a.players.length;
+                const playerCountDiff = (b.current_players - b.current_ai) - (a.current_players - a.current_ai);
                 if (playerCountDiff !== 0) return playerCountDiff;
                 if (a.password && !b.password) return 1;
                 if (!a.password && b.password) return -1;
@@ -959,7 +952,9 @@
                 ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(255, 255, 255, ${s.currentAlpha})`;
                 ctx.fill();
+
                 s.currentAlpha += s.alphaDirection * s.twinkleSpeed;
+
                 if (s.currentAlpha > s.initialAlpha + 0.3 || s.currentAlpha < s.initialAlpha - 0.2) {
                     s.alphaDirection *= -1;
                 }
@@ -978,6 +973,7 @@
                 ctx.lineTo(backgroundCanvas.width, y);
                 ctx.stroke();
             }
+
             requestAnimationFrame(animateBackground);
         }
         resizeCanvas();
