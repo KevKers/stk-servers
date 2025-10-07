@@ -657,7 +657,7 @@
                 const ipAddress = intToIp(parseInt(server.ip));
                 const isFFServer = server.name.toLowerCase().includes('frankfurt');
                 const isTierSServer = server.name.toLowerCase().startsWith('tiers');
-                const shouldShowIpPort = !server.password || isFrankfurtServer || isTierSServer;
+                const shouldShowIpPort = !server.password || isFFServer || isTierSServer;
                 const showHiddenDetailsInitially = clickedServerIds.has(server.id);
                 if (server.players && server.players.length > 0) {
                     server.players.sort((a, b) => {
