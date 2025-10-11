@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperTuxKart Online Servers</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5635803397854470"
+     crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -13,14 +15,17 @@
             --card-bg-color-dark: #000000;
             --card-bg-color-light: #ffffff;
         }
+
         body.dark-mode {
             background-color: #000000;
             color: #e0e0e0;
         }
+
         body.light-mode {
             background-color: #f0f2f5;
             color: #333333;
         }
+
         #background-canvas {
             position: fixed;
             top: 0;
@@ -30,6 +35,7 @@
             z-index: -1;
             opacity: 0.25;
         }
+
         .server-card {
             position: relative;
             overflow: hidden;
@@ -39,16 +45,19 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
         }
+
         .dark-mode .server-card {
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .light-mode .server-card {
             background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            border: 11px solid #e0e0e0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
+
         .server-card::before {
             content: '';
             position: absolute;
@@ -81,16 +90,19 @@
             transition: opacity 0.3s ease-in-out;
             transform-origin: 50% 50%;
         }
+
         .server-card:hover::before,
         .server-card.clicked::before {
             opacity: 0.8;
             animation: rotateBackground 2.5s linear infinite;
         }
+
         @keyframes rotateBackground {
             to {
                 transform: rotate(360deg);
             }
         }
+
         .server-card-content {
             position: relative;
             z-index: 1;
@@ -102,20 +114,24 @@
             flex-direction: column;
             transition: background-color 0.3s ease;
         }
+
         body.light-mode .server-card-content {
             background-color: var(--card-bg-color-light);
         }
+
         .toggle-switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
         }
+
         .toggle-switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -127,6 +143,7 @@
             transition: .4s;
             border-radius: 34px;
         }
+
         .slider:before {
             position: absolute;
             content: "";
@@ -138,15 +155,19 @@
             transition: .4s;
             border-radius: 50%;
         }
+
         input:checked + .slider {
             background-color: #2196F3;
         }
+
         input:focus + .slider {
             box-shadow: 0 0 1px #2196F3;
         }
+
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+
         .glowing-button {
             position: relative;
             overflow: hidden;
@@ -175,10 +196,12 @@
             gap: 0.5rem;
             min-width: 150px;
         }
+
         .glowing-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
         }
+
         .glowing-button::before {
             content: '';
             position: absolute;
@@ -192,11 +215,13 @@
             opacity: 0;
             transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
         }
+
         .glowing-button:hover::before {
             width: 200%;
             height: 200%;
             opacity: 1;
         }
+
         @keyframes glowingGradient {
             0% { background-position: 0% 0%; }
             14.28% { background-position: 14.28% 0%; }
@@ -207,6 +232,7 @@
             85.68% { background-position: 85.68% 0%; }
             100% { background-position: 100% 0%; }
         }
+
         .glowing-button.soccer-active {
             background: linear-gradient(45deg, #2196F3, #00BCD4);
             box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
@@ -215,6 +241,8 @@
         .glowing-button.soccer-active:hover {
             box-shadow: 0 0 25px rgba(0, 188, 212, 0.7);
         }
+
+
         .player-bar-container {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 9999px;
@@ -222,12 +250,14 @@
             width: 100%;
             overflow: hidden;
         }
+
         .player-bar-fill {
             background-color: #4CAF50;
             height: 100%;
             border-radius: 9999px;
             transition: width 0.3s ease-in-out;
         }
+
         .spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
             border-top: 4px solid #3498db;
@@ -239,15 +269,18 @@
             margin-left: 8px;
             vertical-align: middle;
         }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
         .search-container {
             position: relative;
-            flex-grow: 1;
+            width: 100%; 
             max-width: 300px;
         }
+
         #searchClearBtn {
             position: absolute;
             right: 8px;
@@ -265,6 +298,7 @@
         #searchClearBtn:hover {
             color: #e0e0e0;
         }
+
         .hidden-details-section {
             opacity: 0;
             max-height: 0;
@@ -273,11 +307,13 @@
             padding-top: 0;
             margin-top: 0;
         }
+
         .hidden-details-section.show-details {
             opacity: 1;
             max-height: 500px;
             margin-top: 1rem;
         }
+
         .player-list-scroll-container {
             max-height: 150px;
             overflow-y: auto;
@@ -293,6 +329,7 @@
         .player-list-scroll-container::-webkit-scrollbar-track {
             background-color: rgba(0, 0, 0, 0.1);
         }
+
         #messageBox {
             position: fixed;
             bottom: 20px;
@@ -314,31 +351,43 @@
 </head>
 <body class="dark-mode">
     <canvas id="background-canvas"></canvas>
+
     <div class="container mx-auto p-4 md:p-8 relative z-10">
         <header class="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h1 class="text-4xl font-bold mb-4 md:mb-0 text-center md:text-left">SuperTuxKart Online Servers</h1>
-            <div class="w-full text-left mb-4">
-                <p class="text-lg font-semibold text-blue-300">Total online players (AI): <span id="totalPlayersCountHuman">0</span> (<span id="totalPlayersCountAI">0</span>)</p>
+            <div class="flex flex-col w-full md:w-auto md:flex-row md:items-center md:gap-4">
+                <h1 class="text-4xl font-bold text-center md:text-left">SuperTuxKart Online Servers</h1>
+                <p class="text-lg font-semibold text-blue-300 mt-2 md:mt-0">Total online players (AI): <span id="totalPlayersCountHuman">0</span> (<span id="totalPlayersCountAI">0</span>)</p>
             </div>
-            <div class="flex flex-col md:flex-row items-center w-full md:w-auto">
-                <div class="flex justify-between items-center w-full md:w-auto mb-4 md:mb-0 md:space-x-8">
-                    <div class="search-container">
-                        <input type="text" id="searchBar" placeholder="Search servers..." class="p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full pr-8" />
-                        <button id="searchClearBtn" aria-label="Clear search">&times;</button>
-                    </div>
-                    <button id="soccerServersBtn" class="glowing-button ml-4 md:ml-0">⚽ Live Soccer Servers</button>
-                    <button id="refreshNowBtn" class="glowing-button ml-4 md:ml-0">🔄 Refresh Now</button>
+            
+            <div class="flex flex-wrap items-center justify-center md:justify-end w-full md:w-auto gap-3 mt-4 md:mt-0">
+                
+                <div class="search-container order-1 w-full sm:w-auto md:order-none">
+                    <input type="text" id="searchBar" placeholder="Search servers..." class="p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full pr-8" />
+                    <button id="searchClearBtn" aria-label="Clear search">
+                        &times;
+                    </button>
                 </div>
-                <div class="flex items-center space-x-2 md:ml-8">
+                
+                <button id="soccerServersBtn" class="glowing-button order-2">
+                    ⚽ Live Soccer Servers
+                </button>
+                
+                <button id="refreshNowBtn" class="glowing-button order-3">
+                    🔄 Refresh Now
+                </button>
+                
+                <div class="flex items-center space-x-2 order-4">
                     <span id="utcTime" class="text-sm font-medium"></span>
                     <span id="updateStatus" class="text-sm font-medium text-yellow-400 flex items-center"></span>
                 </div>
-                <label class="toggle-switch md:ml-4">
+                
+                <label class="toggle-switch order-5">
                     <input type="checkbox" id="themeToggle">
                     <span class="slider"></span>
                 </label>
             </div>
         </header>
+
         <div class="flex flex-col md:flex-row justify-end items-center gap-4 mb-8">
             <select id="gameModeFilter" class="p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full md:w-auto">
                 <option value="">All Game Modes</option>
@@ -349,11 +398,17 @@
             <select id="serverStatusFilter" class="p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 w-full md:w-auto">
                 <option value="">Game Status</option>
             </select>
-            <button id="clearFiltersBtn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 w-full md:w-auto">Clear Filters</button>
+            <button id="clearFiltersBtn" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 w-full md:w-auto">
+                Clear Filters
+            </button>
         </div>
-        <div id="serverList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+        <div id="serverList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        </div>
     </div>
+
     <div id="messageBox"></div>
+
     <script>
         const serverListDiv = document.getElementById('serverList');
         const utcTimeSpan = document.getElementById('utcTime');
@@ -377,7 +432,9 @@
         let isSoccerMode = false;
         let updateInterval;
         const clickedServerIds = new Set();
+
         const AUTO_UPDATE_FETCH_URL = 'https://api.codetabs.com/v1/proxy?quest=https://online.supertuxkart.net/api/v2/server/get-all';
+
 
         const gameModeMap = {
             0: 'Grand Prix (Normal Race)',
@@ -388,6 +445,7 @@
             7: 'Free-for-all',
             8: 'Capture the Flag'
         };
+
         const difficultyMap = {
             0: 'Novice',
             1: 'Intermediate',
@@ -395,10 +453,12 @@
             3: 'SuperTux',
             4: 'SuperTux'
         };
+
         const serverStatusMap = {
             'true': 'Game started',
             'false': 'Waiting for a game'
         };
+
         const countryCodeMap = {
             "US": "United States", "DE": "Germany", "FR": "France", "GB": "United Kingdom",
             "CA": "Canada", "AU": "Australia", "NL": "Netherlands", "PL": "Poland",
@@ -426,9 +486,9 @@
             "NC": "New Caledonia", "PF": "French Polynesia", "WF": "Wallis and Futuna", "EH": "Western Sahara",
             "AQ": "Antarctica", "BV": "Bouvet Island", "CC": "Cocos (Keeling) Islands",
             "CX": "Christmas Island", "HM": "Heard Island and McDonald Islands", "NF": "Norfolk Island",
-            "PN": "Pitcairn", "TF": "French Southern Territories", "UM": "U.S. Minor Outlying Islands",
+            "PN": "Pitcairn", "TF": "French Southern Territories", "UM": "United States Minor Outlying Islands",
             "GS": "South Georgia and the South Sandwich Islands", "IO": "British Indian Ocean Territory",
-            "SH": "Saint Helena", "PM": "Saint Pierre and Miquelon",
+            "SH": "Saint Helena, Ascension and Tristan da Cunha", "PM": "Saint Pierre and Miquelon",
             "SJ": "Svalbard and Jan Mayen", "TK": "Tokelau", "AQ": "Antarctica", "AX": "Åland Islands",
             "BQ": "Bonaire, Sint Eustatius and Saba", "CW": "Curaçao", "GG": "Guernsey",
             "IM": "Isle of Man", "JE": "Jersey", "MF": "Saint Martin (French part)",
@@ -457,9 +517,11 @@
             "DO": "Dominican Republic", "SV": "El Salvador", "FK": "Falkland Islands", "GD": "Grenada",
             "GT": "Guatemala", "HT": "Haiti", "HN": "Honduras", "JM": "Jamaica",
             "MS": "Montserrat", "NI": "Nicaragua", "PA": "Panama", "PR": "Puerto Rico",
-            "KN": "Saint Kitts and Nevis", "LC": "Saint Lucia", "VC": "Saint Vincent and the Grenadines",
+            "KN": "Saint Kitts and Nevis", "LC": "Saint Lucia", "VC": "Saint Vincent and the Redines",
             "TT": "Trinidad and Tobago", "TC": "Turks and Caicos Islands", "VI": "U.S. Virgin Islands",
         };
+
+
         function showMessage(message, type = 'success') {
             messageBox.textContent = message;
             if (type === 'error') {
@@ -472,6 +534,7 @@
                 messageBox.classList.remove('show');
             }, 2000);
         }
+
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
@@ -486,6 +549,7 @@
             }
             document.body.removeChild(textarea);
         }
+
         function populateFilters() {
             gameModeFilterSelect.innerHTML = '<option value="">All Game Modes</option>';
             for (const key in gameModeMap) {
@@ -494,6 +558,7 @@
                 option.textContent = gameModeMap[key];
                 gameModeFilterSelect.appendChild(option);
             }
+
             difficultyFilterSelect.innerHTML = '<option value="">All Difficulties</option>';
             for (const key in difficultyMap) {
                 if (parseInt(key) === 4) continue;
@@ -502,6 +567,7 @@
                 option.textContent = difficultyMap[key];
                 difficultyFilterSelect.appendChild(option);
             }
+
             serverStatusFilterSelect.innerHTML = '<option value="">Game Status</option>';
             for (const key in serverStatusMap) {
                 const option = document.createElement('option');
@@ -510,12 +576,14 @@
                 serverStatusFilterSelect.appendChild(option);
             }
         }
+
         function intToIp(ipInt) {
             return ((ipInt >>> 24) & 0xFF) + '.' +
                    ((ipInt >>> 16) & 0xFF) + '.' +
                    ((ipInt >>> 8) & 0xFF) + '.' +
                    (ipInt & 0xFF);
         }
+
         function formatTrackName(trackName) {
             if (!trackName) return 'N/A';
             switch (trackName) {
@@ -558,14 +626,17 @@
                     return formatted.replace(/\b\w/g, char => char.toUpperCase());
             }
         }
+
         function parseXML(xmlString) {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const serverElements = xmlDoc.querySelectorAll('server');
             const servers = [];
+
             serverElements.forEach(serverEl => {
                 const serverInfoEl = serverEl.querySelector('server-info');
                 if (!serverInfoEl) return;
+
                 const server = {};
                 for (const attr of serverInfoEl.attributes) {
                     server[attr.name.replace(/-/g, '_')] = attr.value;
@@ -580,52 +651,68 @@
                 server.official = server.official === '1';
                 server.game_started = server.game_started === '1';
                 server.port = parseInt(server.port);
+
                 server.players = [];
                 const playerInfoElements = serverEl.querySelectorAll('player-info');
                 playerInfoElements.forEach(playerEl => {
-                    const player = {};
+                    const p = {};
                     for (const attr of playerEl.attributes) {
-                        player[attr.name.replace(/-/g, '_')] = attr.value;
+                        p[attr.name.replace(/-/g, '_')] = attr.value;
                     }
-                    player.rank = parseInt(player.rank);
-                    player.scores = parseFloat(player.scores);
-                    player.max_scores = parseFloat(player.max_scores);
-                    player.num_races_done = parseInt(player.num_races_done);
-                    server.players.push(player);
+                    p.rank = parseInt(p.rank);
+                    p.scores = parseFloat(p.scores);
+                    p.max_scores = parseFloat(p.max_scores);
+                    p.num_races_done = parseInt(p.num_races_done);
+                    server.players.push(p);
                 });
+
+                server.effective_human_players = server.players.length;
+                
+                server.effective_ai_players = Math.max(0, server.current_players - server.effective_human_players);
+
                 servers.push(server);
             });
             return servers;
         }
+
         function renderServers(serversToRender) {
             serverListDiv.innerHTML = '';
+
             const currentSearchTerm = searchBar.value.toLowerCase();
             const currentSelectedGameMode = gameModeFilterSelect.value;
             const currentSelectedDifficulty = difficultyFilterSelect.value;
             const currentSelectedServerStatus = serverStatusFilterSelect.value;
+
             let filteredServers = serversToRender.filter(server => {
                 const nameMatch = server.name.toLowerCase().includes(currentSearchTerm);
                 const countryMatch = server.country_code.toLowerCase().includes(currentSearchTerm);
                 const gameModeMatch = (gameModeMap[server.game_mode] || '').toLowerCase().includes(currentSearchTerm);
                 const playerMatch = server.players.some(p => (p.username || '').toLowerCase().includes(currentSearchTerm));
                 const searchMatches = nameMatch || countryMatch || gameModeMatch || playerMatch;
+
                 const gameModeMatches = currentSelectedGameMode === "" || server.game_mode.toString() === currentSelectedGameMode;
                 const difficultyMatches = currentSelectedDifficulty === "" || server.difficulty.toString() === currentSelectedDifficulty;
                 const statusMatches = currentSelectedServerStatus === "" || server.game_started.toString() === currentSelectedServerStatus;
+
                 return searchMatches && gameModeMatches && difficultyMatches && statusMatches;
             });
+
             let totalHumanPlayers = 0;
             let totalAIPlayers = 0;
+            
             allServers.forEach(server => {
-                const humanPlayersInServer = server.current_players - server.current_ai;
-                totalHumanPlayers += humanPlayersInServer;
-                totalAIPlayers += server.current_ai;
+                totalHumanPlayers += server.effective_human_players;
+                totalAIPlayers += server.effective_ai_players;
             });
+
             totalPlayersCountHumanSpan.textContent = totalHumanPlayers;
             totalPlayersCountAISpan.textContent = totalAIPlayers;
+
+
             if (filteredServers.length === 0) {
                 let message = "No results found";
                 const activeFilterDescriptions = [];
+
                 if (currentSearchTerm) {
                     activeFilterDescriptions.push(`matching search term "${currentSearchTerm}"`);
                 }
@@ -638,27 +725,37 @@
                 if (currentSelectedServerStatus !== "") {
                     activeFilterDescriptions.push(`with status "${serverStatusMap[currentSelectedServerStatus]}"`);
                 }
+
                 if (activeFilterDescriptions.length > 0) {
                     message += " " + activeFilterDescriptions.join(" and ");
                 }
                 message += ". Please adjust your filters or search term.";
+
                 serverListDiv.innerHTML = `<p class="text-center text-gray-400 col-span-full">${message}</p>`;
                 return;
             }
+
             filteredServers.forEach(server => {
                 const card = document.createElement('div');
                 card.className = `server-card p-6 rounded-xl shadow-lg flex flex-col justify-between ${clickedServerIds.has(server.id) ? 'clicked' : ''}`;
                 card.dataset.serverId = server.id;
-                const humanPlayers = server.current_players - server.current_ai;
-                const playersText = humanPlayers + (server.current_ai > 0 ? ` (+${server.current_ai} AI)` : '');
+
+                const humanPlayers = server.effective_human_players;
+                const aiPlayers = server.effective_ai_players;
+                const totalPlayers = humanPlayers + aiPlayers;
+                
+                const playersText = humanPlayers + (aiPlayers > 0 ? ` (+${aiPlayers} AI)` : '');
                 const gameModeName = gameModeMap[server.game_mode] || `Mode ${server.game_mode}`;
                 const difficultyDisplay = server.difficulty !== 4 ? `<p><strong class="text-purple-400">Difficulty:</strong> ${difficultyMap[server.difficulty] || `Difficulty ${server.difficulty}`}</p>` : '';
                 const formattedTrackName = formatTrackName(server.current_track);
                 const ipAddress = intToIp(parseInt(server.ip));
-                const isFFServer = server.name.toLowerCase().includes('frankfurt');
+
+                const isFrankfurtServer = server.name.toLowerCase().includes('frankfurt');
                 const isTierSServer = server.name.toLowerCase().startsWith('tiers');
-                const shouldShowIpPort = !server.password || isFFServer || isTierSServer;
+                const shouldShowIpPort = !server.password || isFrankfurtServer || isTierSServer;
+
                 const showHiddenDetailsInitially = clickedServerIds.has(server.id);
+
                 if (server.players && server.players.length > 0) {
                     server.players.sort((a, b) => {
                         const rankA = a.rank;
@@ -669,6 +766,7 @@
                         return rankA - rankB;
                     });
                 }
+
                 card.innerHTML = `
                     <div class="server-card-content">
                         <div class="flex items-center justify-between mb-2">
@@ -679,13 +777,14 @@
                             <p class="flex items-center"><img src="https://flagsapi.com/${server.country_code}/flat/24.png" onerror="this.onerror=null;this.src='https://placehold.co/24x18/cccccc/333333?text=NA';" class="mr-2 rounded-sm" alt="${server.country_code} Flag" title="${countryCodeMap[server.country_code] || server.country_code}"></p>
                             <p><strong class="text-blue-400">Players:</strong> ${playersText} / ${server.max_players}</p>
                             <div class="col-span-2 player-bar-container">
-                                <div class="player-bar-fill" style="width: ${(server.current_players / server.max_players) * 100 || 0}%;"></div>
+                                <div class="player-bar-fill" style="width: ${(totalPlayers / server.max_players) * 100 || 0}%;"></div>
                             </div>
                             <p><strong class="text-green-400">Game Mode:</strong> ${gameModeName}</p>
                             ${difficultyDisplay}
                             ${server.password ? '<p class="col-span-2 text-orange-400 flex items-center">🔒 Private Server</p>' : ''}
                             <p><strong class="text-gray-400">Current Track:</strong> ${formattedTrackName}</p>
                             <p class="col-span-2"><strong class="text-pink-400">Status:</strong> ${server.game_started ? 'Game Started' : 'Waiting for a game'}</p>
+
                             ${server.players && server.players.length > 0 ? `
                                 <div class="col-span-2 player-list-scroll-container mt-4">
                                     <h4 class="font-semibold mb-2 text-blue-300">Current Players:</h4>
@@ -700,6 +799,7 @@
                                     </div>
                                 </div>
                             ` : ''}
+
                             <div class="col-span-2 hidden-details-section ${showHiddenDetailsInitially ? 'show-details' : ''}">
                                 ${shouldShowIpPort ? `
                                     <p class="mt-2">
@@ -716,9 +816,12 @@
                     </div>
                 `;
                 serverListDiv.appendChild(card);
+
                 card.addEventListener('click', (event) => {
                     event.stopPropagation();
+
                     const hiddenDetailsSection = card.querySelector('.hidden-details-section');
+
                     document.querySelectorAll('.server-card.clicked').forEach(openCard => {
                         if (openCard !== card) {
                             openCard.classList.remove('clicked');
@@ -726,6 +829,7 @@
                             clickedServerIds.delete(openCard.dataset.serverId);
                         }
                     });
+
                     if (clickedServerIds.has(server.id)) {
                         clickedServerIds.delete(server.id);
                         card.classList.remove('clicked');
@@ -736,6 +840,7 @@
                         hiddenDetailsSection.classList.add('show-details');
                     }
                 });
+
                 const copyButton = card.querySelector('.copy-button');
                 if (copyButton) {
                     copyButton.addEventListener('click', (event) => {
@@ -751,8 +856,10 @@
                 }
             });
         }
+
         async function fetchData() {
             updateStatusSpan.innerHTML = 'Updating... <span class="spinner"></span>';
+
             try {
                 const response = await fetch(AUTO_UPDATE_FETCH_URL);
                 if (!response.ok) {
@@ -777,26 +884,42 @@
                 setTimeout(() => updateStatusSpan.textContent = '', 5000);
             }
         }
+
         function sortAndRenderServers() {
+            let totalHumanPlayers = 0;
+            let totalAIPlayers = 0;
+            
+            allServers.forEach(server => {
+                totalHumanPlayers += server.effective_human_players;
+                totalAIPlayers += server.effective_ai_players;
+            });
+
+            totalPlayersCountHumanSpan.textContent = totalHumanPlayers;
+            totalPlayersCountAISpan.textContent = totalAIPlayers;
+
             let serversToDisplay = [...allServers];
+
             const selectedGameMode = gameModeFilterSelect.value;
             if (selectedGameMode !== "") {
                 serversToDisplay = serversToDisplay.filter(server =>
                     server.game_mode.toString() === selectedGameMode
                 );
             }
+
             const selectedDifficulty = difficultyFilterSelect.value;
             if (selectedDifficulty !== "") {
                 serversToDisplay = serversToDisplay.filter(server =>
                     server.difficulty.toString() === selectedDifficulty
                 );
             }
+
             const selectedServerStatus = serverStatusFilterSelect.value;
             if (selectedServerStatus !== "") {
                 serversToDisplay = serversToDisplay.filter(server =>
                     server.game_started.toString() === selectedServerStatus
                 );
             }
+
             const searchTerm = searchBar.value.toLowerCase();
             serversToDisplay = serversToDisplay.filter(server => {
                 const nameMatch = server.name.toLowerCase().includes(searchTerm);
@@ -805,8 +928,10 @@
                 const playerMatch = server.players.some(p => (p.username || '').toLowerCase().includes(searchTerm));
                 return nameMatch || countryMatch || gameModeMatch || playerMatch;
             });
+
             const activeServers = serversToDisplay.filter(server => server.current_players > 0);
             const zeroPlayersServers = serversToDisplay.filter(server => server.current_players === 0);
+
             activeServers.sort((a, b) => {
                 if (isSoccerMode) {
                     const aIsSoccer = a.name.toLowerCase().includes('soccer') || (gameModeMap[a.game_mode] || '').toLowerCase().includes('soccer');
@@ -814,20 +939,28 @@
                     if (aIsSoccer && !bIsSoccer) return -1;
                     if (!aIsSoccer && bIsSoccer) return 1;
                 }
-                const playerCountDiff = (b.current_players - b.current_ai) - (a.current_players - a.current_ai);
+
+                const playerCountDiff = b.effective_human_players - a.effective_human_players;
                 if (playerCountDiff !== 0) return playerCountDiff;
+
                 if (a.password && !b.password) return 1;
                 if (!a.password && b.password) return -1;
+
                 return 0;
             });
+
             zeroPlayersServers.sort((a, b) => {
                 if (a.password && !b.password) return 1;
                 if (!a.password && b.password) return -1;
+
                 return a.name.localeCompare(b.name);
             });
+
             serversToDisplay = [...activeServers, ...zeroPlayersServers];
+
             renderServers(serversToDisplay);
         }
+
         themeToggle.addEventListener('change', () => {
             if (themeToggle.checked) {
                 document.body.classList.remove('dark-mode');
@@ -837,6 +970,7 @@
                 document.body.classList.add('dark-mode');
             }
         });
+
         soccerServersBtn.addEventListener('click', () => {
             isSoccerMode = !isSoccerMode;
             if (isSoccerMode) {
@@ -846,6 +980,7 @@
             }
             sortAndRenderServers();
         });
+
         refreshNowBtn.addEventListener('click', () => {
             fetchData();
             clearInterval(updateInterval);
@@ -861,6 +996,7 @@
                 }
             }, 1000);
         });
+
         searchBar.addEventListener('input', () => {
             if (searchBar.value.length > 0) {
                 searchClearBtn.style.display = 'block';
@@ -869,11 +1005,13 @@
             }
             sortAndRenderServers();
         });
+
         searchClearBtn.addEventListener('click', () => {
             searchBar.value = '';
             searchClearBtn.style.display = 'none';
             sortAndRenderServers();
         });
+
         gameModeFilterSelect.addEventListener('change', sortAndRenderServers);
         difficultyFilterSelect.addEventListener('change', sortAndRenderServers);
         serverStatusFilterSelect.addEventListener('change', sortAndRenderServers);
@@ -885,20 +1023,24 @@
             searchClearBtn.style.display = 'none';
             sortAndRenderServers();
         });
+
         function updateUTCTime() {
             const now = new Date();
             utcTimeSpan.textContent = `UTC: ${now.toUTCString().split(' ')[4]}`;
         }
+
         let particles = [];
         let stars = [];
         const numParticles = 70;
         const numStars = 150;
         const particleSize = 2.5;
         const particleSpeed = 0.75;
+
         function resizeCanvas() {
             backgroundCanvas.width = window.innerWidth;
             backgroundCanvas.height = window.innerHeight;
         }
+
         function createParticle() {
             return {
                 x: Math.random() * backgroundCanvas.width,
@@ -909,6 +1051,7 @@
                 radius: Math.random() * particleSize + 0.5
             };
         }
+
         function createStar() {
             return {
                 x: Math.random() * backgroundCanvas.width,
@@ -920,6 +1063,7 @@
                 twinkleSpeed: Math.random() * 0.015 + 0.008
             };
         }
+
         function initParticlesAndStars() {
             particles = [];
             for (let i = 0; i < numParticles; i++) {
@@ -930,15 +1074,19 @@
                 stars.push(createStar());
             }
         }
+
         function animateBackground() {
             ctx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
             ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
             particles.forEach(p => {
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fill();
+
                 p.x += p.vx;
                 p.y += p.vy;
+
                 if (p.x < 0 || p.x > backgroundCanvas.width || p.y < 0 || p.y > backgroundCanvas.height) {
                     Object.assign(p, createParticle());
                     if (p.x < 0) p.x = backgroundCanvas.width;
@@ -947,6 +1095,7 @@
                     if (p.y > backgroundCanvas.height) p.y = 0;
                 }
             });
+
             stars.forEach(s => {
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
@@ -959,6 +1108,7 @@
                     s.alphaDirection *= -1;
                 }
             });
+
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
             const gridSize = 50;
             for (let x = 0; x < backgroundCanvas.width; x += gridSize) {
@@ -976,17 +1126,21 @@
 
             requestAnimationFrame(animateBackground);
         }
+
         resizeCanvas();
         initParticlesAndStars();
         animateBackground();
         window.addEventListener('resize', () => {
             resizeCanvas();
             initParticlesAndStars();
-        });
+        }
+    );
+
         populateFilters();
         fetchData();
         updateUTCTime();
         setInterval(updateUTCTime, 1000);
+
         let countdown = 14;
         updateInterval = setInterval(() => {
             countdown--;
@@ -996,8 +1150,8 @@
             if (countdown <= 0) {
                 fetchData();
                 countdown = 14;
-            }
-        }, 1000);
-    </script>
-</body>
+                }
+            }, 1000);
+        </script>
+    </body>
 </html>
